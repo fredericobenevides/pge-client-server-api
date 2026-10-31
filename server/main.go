@@ -91,8 +91,6 @@ func NewServerApi(db *gorm.DB, tableName string, economiaApi *EconomiaApi) *Serv
 func (c *ServerApi) handler(w http.ResponseWriter, r *http.Request) {
 	ctx := r.Context()
 
-	time.Sleep(5 * time.Second)
-
 	economiaApiResponse, err := c.economiaApi.buscarCotacao(ctx)
 	if err != nil {
 		log.Printf("Erro ao buscar a cotação: %v\n", err)
